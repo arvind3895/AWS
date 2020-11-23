@@ -5,6 +5,7 @@ const { isLoggedIn } = require("../middleware/auth");
 const auth = (app) => {
   app.post("/api/login", async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body);
     if (!email || !password) {
       res.json({ success: false, message: "Unauthorized" });
     } else {
@@ -17,12 +18,13 @@ const auth = (app) => {
         Iron.defaults
       );
       res.setHeader("authorization", token);
-      res.json({ success: true, message: "Logged in successfully!" });
+      res.json({ success: true, message: "Logged in successfully!"});
     }
   });
 
   app.post("/api/register", async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body,req.body.email,"hey");
     if (!email || !password) {
       res.json({ success: false, message: "Unauthorized" });
     } else {

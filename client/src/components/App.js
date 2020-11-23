@@ -1,25 +1,27 @@
 import React from "react";
-import logo from "../logo.svg";
+import { BrowserRouter as Router} from "react-router-dom";
+import  Routes  from "../routes/routes";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+const outerTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#005A3C",
+      light: "#E9F0F0",
+      dark: "#005A3C",
+      contrastText: "#fff"
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <ThemeProvider theme={outerTheme}>
+    <Router >
+      <Routes />
+    </Router>
+    </ThemeProvider>
+    );
 }
 
 export default App;

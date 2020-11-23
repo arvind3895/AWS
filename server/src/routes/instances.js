@@ -6,7 +6,7 @@ const instances = (app) => {
     res.json({ success: true, instances: getInstances() });
   });
 
-  app.get("/api/instances/:action/:id", isLoggedIn, (req, res) => {
+  app.get("/api/instance/:action/:id", isLoggedIn, (req, res) => {
     const { id, action } = req.params;
     if (!["start", "stop"].includes(action)) {
       res.send({ success: false, message: "Invalid action type" });
